@@ -1,1 +1,5 @@
+#PyCharm files
+.idea/
 
+#Vagrant files
+virtual-ubuntu-20.04/.vagrant
