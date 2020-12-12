@@ -1,3 +1,1 @@
-# devops-netology
-
-The project description will be here soon.
+# Netology homework project

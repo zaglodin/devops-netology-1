@@ -1,8 +1,0 @@
-#PyCharm files
-.idea/
-
-#Vagrant files
-virtual-ubuntu-20.04/.vagrant
-
-#node_exporter
-/virtual-ubuntu-20.04/node_exporter-1.0.1.linux-amd64
