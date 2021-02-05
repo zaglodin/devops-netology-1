@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+
+WORKDIR /tmp
+ADD jenkins.war /tmp
+
+RUN apt update && \
+    apt install -y openjdk-11-jdk
+
+CMD ["java", "-jar", "jenkins.war"]

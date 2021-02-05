@@ -1,0 +1,6 @@
+FROM amazoncorretto:latest
+
+WORKDIR /tmp
+ADD jenkins.war /tmp
+
+CMD ["java", "-jar", "jenkins.war"]
