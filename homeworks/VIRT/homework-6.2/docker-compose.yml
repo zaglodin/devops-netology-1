@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: "postgres:12"
+    container_name: "postgres"
+    networks: 
+      db-network:
+    ports:
+      - "5432:5432"
+    volumes: 
+      - "db-data:/var/lib/postgresql/data/db-data"
+      - "db-backup:/var/lib/postgresql/data/db-backup"
+    environment:
+      POSTGRES_PASSWORD: "example"
+      PGDATA: "/var/lib/postgresql/data/db-data"
+    
+volumes:
+  db-data:
+    name: "db-data"
+  db-backup:   
+    name: "db-backup"
+
+networks:
+  db-network:
+    name: db-network
