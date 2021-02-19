@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: "mysql:8"
+    container_name: "mysql"
+    networks: 
+      db-network:
+    ports:
+      - "3306:3306"
+    volumes: 
+      - "db-data:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: "example"
+    
+volumes:
+  db-data:
+    name: "db-data"
+
+networks:
+  db-network:
+    name: db-network
