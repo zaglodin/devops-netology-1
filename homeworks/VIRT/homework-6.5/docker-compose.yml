@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  elasticsearch:
+    image: "myamshchikov/elasticsearch:latest"
+    container_name: "elasticsearch"
+    network_mode: "host"
+    volumes: 
+      - "db-data:/var/lib/elasticsearch/db-data"
+      - "db-logs:/var/lib/elasticsearch/db-logs"
+      - "./config:/elasticsearch/config"
+
+    
+volumes:
+  db-data:
+    name: "db-data"
+  db-logs:
+    name: "db-logs"
