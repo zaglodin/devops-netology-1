@@ -106,10 +106,3 @@
     green open test-2 dkjnfqe1ToKgZ_Z8YGKx-w 1 0 0 0 208b 208b
     green open test   Q9kMe6LzTn2w6yQVioXHWg 1 0 0 0 208b 208b
     ```
-
-curl -X POST "localhost:9200/_snapshot/netology_backup/snapshot_1/_restore?pretty" -H 'Content-Type: application/json' -d'
-{
-  "include_global_state": true
-}
-'
-
