@@ -1,0 +1,3 @@
+repo-allowlist: "github.com/yamshchikov/*"
+
+repo-config: "./repos.yaml"

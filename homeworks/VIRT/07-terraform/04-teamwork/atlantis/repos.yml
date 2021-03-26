@@ -1,0 +1,10 @@
+repos:
+- id: /.*/
+  allowed_overrides: [workflow]
+
+workflows:
+  default:
+    plan:
+      steps:
+      - plan:
+          extra_args: ["-lock=false"]

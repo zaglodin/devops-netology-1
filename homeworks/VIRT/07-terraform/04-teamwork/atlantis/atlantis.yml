@@ -1,0 +1,20 @@
+version: 3
+
+projects:
+- dir: devops-netology
+  workspace: stage
+  workflow: myworkflow
+  autoplan:
+    enabled: true
+    when_modified: ["*.tf"]
+- dir: devops-netology
+  workspace: prod
+  workflow: myworkflow
+  autoplan:
+    enabled: true
+    when_modified: ["*.tf"]
+
+workflows:
+  myworkflow:
+    plan:
+    apply:
