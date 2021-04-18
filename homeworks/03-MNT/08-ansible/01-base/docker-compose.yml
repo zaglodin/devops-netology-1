@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  centos7:
+    image: "centos:7"
+    container_name: "centos7"
+    networks:
+      - ansible
+    tty: true
+  ubuntu:
+    image: "ubuntu:20.04"
+    container_name: "ubuntu"
+    networks:
+      - ansible
+    tty: true
+  fedora:
+    image: "fedora:33"
+    container_name: "fedora"
+    networks:
+      - ansible
+    tty: true
+
+networks:
+  ansible:
+    name: ansible
