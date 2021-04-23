@@ -1,0 +1,18 @@
+# Warning: This file is Ansible Managed, manual changes will be overwritten on next playbook run.
+# Sample Logstash configuration for creating a simple
+# Beats -> Logstash -> Elasticsearch pipeline.
+
+input {
+  beats {
+    port => 5044
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://{{ hostvars['elasticsearch']['ansible_default_ipv4']['address'] }}:9200"]
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    #user => "elastic"
+    #password => "changeme"
+  }
+}

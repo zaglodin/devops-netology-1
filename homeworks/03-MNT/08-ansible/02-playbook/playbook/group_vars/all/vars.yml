@@ -1,0 +1,4 @@
+---
+  java_jdk_version: 8u291
+  java_oracle_jdk_package: "jdk-{{  java_jdk_version  }}-linux-x64.tar.gz"
+  

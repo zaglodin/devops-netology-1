@@ -1,0 +1,3 @@
+---
+  logstash_version: "7.12.0"
+  logstash_home: "/opt/logstash/{{ logstash_version }}"

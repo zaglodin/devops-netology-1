@@ -1,0 +1,15 @@
+Vagrant.configure("2") do |config|
+  
+  config.vm.define "elasticsearch" do |elasticsearch|
+    elasticsearch.vm.box = "bento/ubuntu-20.04"
+    elasticsearch.vm.network "private_network", ip: "10.0.0.2"
+    elasticsearch.vm.hostname = "elasticsearch"
+  end
+
+  config.vm.define "logstash" do |logstash|
+    logstash.vm.box = "bento/ubuntu-20.04"
+    logstash.vm.network "private_network", ip: "10.0.0.3"
+    logstash.vm.hostname = "logstash"
+  end
+
+end
