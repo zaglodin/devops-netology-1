@@ -1,0 +1,14 @@
+node("ansible_docker"){
+    stage("Git checkout"){
+        git credentialsId: 'f62d4c1f-2385-48f6-989e-8a7b45890fd3', url: 'git@github.com:aragastmatb/example-playbook.git'
+    }
+    stage("Get Roles"){
+        sh 'ansible-vault decrypt secret --vault-password-file vault_pass'
+        sh 'mv ./secret ~/.ssh/id_rsa'
+        sh 'chmod 400 ~/.ssh/id_rsa'
+        sh 'ansible-galaxy install -r requirements.yml -p roles' 
+    }
+    stage("Run playbook"){
+        sh 'ansible-playbook site.yml -i inventory/prod.yml'       
+    }
+}

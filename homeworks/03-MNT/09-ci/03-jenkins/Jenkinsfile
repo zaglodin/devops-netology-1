@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        label "ansible_docker"
+    }
+    
+    stages {
+        stage('Get Repo') {
+            steps {
+               git credentialsId: 'f62d4c1f-2385-48f6-989e-8a7b45890fd3', url: 'git@github.com:aragastmatb/example-playbook.git'
+                ansibleVault(action: 'decrypt', input: 'secret', vaultCredentialsId: 'ansible-vault-credentials')
+                sh 'mv ./secret ~/.ssh/id_rsa'
+                sh 'chmod 400 ~/.ssh/id_rsa'
+                sh 'ansible-galaxy install -r requirements.yml -p roles' 
+            }
+        }
+        
+        stage('Run Playbook') {
+            steps {
+                ansiColor('xterm') {
+                    ansiblePlaybook(
+                        playbook: 'site.yml',
+                        inventory: 'inventory/prod.yml',
+                        colorized: true)
+                }
+            }
+        }
+    }
+}
